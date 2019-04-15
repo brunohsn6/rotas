@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.accountService.logout();
-
+    
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 

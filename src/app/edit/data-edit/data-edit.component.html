@@ -1,0 +1,55 @@
+<div class="container">
+    <br/>
+    <div class="col-12 col-md-8 col-centered">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title text-center">Editar {{type}}</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="save()">
+            <h5>NOME</h5>
+            <div *ngIf = "type == 'Serie'">
+                <input type="text" formControlName="name" [(ngModel)] = data.name class="form-control form-control-lg"/>
+                <div *ngIf="f.name?.errors?.required">O campo título deve ser preenchido</div>
+              &nbsp;
+            </div>
+            <div *ngIf = "type == 'Movie'">
+                <input type="text" formControlName="name" [(ngModel)] = data.title class="form-control form-control-lg"/>
+                <div *ngIf="f.name?.errors?.required">O campo título deve ser preenchido</div>
+              &nbsp;
+            </div>
+           
+            <h5>DESCRIÇÃO</h5>
+            <textarea type="text" formControlName="overview" [(ngModel)] = data.overview class="form-control form-control-lg"></textarea>
+              <div *ngIf="f.overview?.errors?.required">O campo sinópse deve ser preenchido</div>
+            &nbsp;
+            <h5>GÊNEROS</h5>
+            <!-- <input type="text" formControlName="genres" placeholder="Gêneros" class="form-control form-control-lg"/> -->
+              <div *ngIf="f.genres?.errors?.required">O campo gêneros deve ser preenchido</div>
+              <div class="d-inline-block" *ngFor="let genero of data?.genres, let i = index">
+                <button type="button" class="btn btn-primary">
+                    {{genero.name}} <span class="badge badge-light" (click) = "popGenero(i)">X</span>
+                </button>&nbsp;                
+              </div>
+            <br><br>
+            <h5>PRODUTORAS</h5>
+            
+            <!-- <input type="text" formControlName="production_companies" placeholder="Produtoras" class="form-control form-control-lg"/> -->
+              <div *ngIf="f.production_companies?.errors?.required">O campo produtoras deve ser preenchido</div>
+              <div class="d-inline-block" *ngFor="let production of data?.production_companies, let j = index">
+                  <button type="button" class="btn btn-primary">
+                      {{production.name}} <span class="badge badge-light" (click) = "popProdutora(j)">X</span>
+                  </button>&nbsp;  
+                </div>
+            &nbsp;
+            <br><br>
+           
+            <button type="button" class="btn btn-success" (click) = save()>Salvar</button> &nbsp;
+            <button type="button" class="btn btn-danger" onClick = "history.go(-1)">Cancelar</button>    
+   
+          </form>
+        </div>
+      </div>
+  
+    </div>
+  </div>

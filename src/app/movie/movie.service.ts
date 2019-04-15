@@ -9,6 +9,10 @@ export class MovieService extends BaseService {
     super(httpClient);
   }
 
+  save(data){
+    alert("edições de "+ data.title +" foram salvas!");
+    console.log(data.overview);
+  }
 
   getDiscover() {
     return this._httpClient.get(`${this.URL}discover/movie?language=pt-BR`)

@@ -9,6 +9,10 @@ export class SerieService extends BaseService {
     super(httpClient);
   }
 
+  save(data){
+    alert("edições de "+ data.name +" foram salvas!");
+    console.log(data.overview);
+  }
   getDiscover() {
     return this._httpClient.get(`${this.URL}discover/tv?language=pt-BR`)
   }

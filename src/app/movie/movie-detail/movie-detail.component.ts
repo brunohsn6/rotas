@@ -1,6 +1,6 @@
 import { MovieService } from '../movie.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieDetailComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
-    private _movieService: MovieService) { }
+    private _movieService: MovieService,
+    private _router : Router) { }
     
   movie = {}
   ngOnInit() {
@@ -22,6 +23,11 @@ export class MovieDetailComponent implements OnInit {
           this.movie = response;
         })
     });
+  }
+
+  edit(movie){
+    this._router.navigate(['edit',"movie", movie.id])
+
   }
 
 }

@@ -12,10 +12,10 @@ import { SerieService } from './serie.service';
   ],
   imports: [
     CommonModule,
-    SerieRoutingModule
+    SerieRoutingModule,
   ],
   providers: [
-    SerieService
+    //SerieService
   ]
 })
 export class SerieModule { }

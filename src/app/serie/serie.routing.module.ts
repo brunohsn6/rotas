@@ -5,7 +5,9 @@ import { SerieDetailComponent } from './serie-detail/serie-detail.component';
 
 const routes: Routes = [
     {  path: '', component: SerieComponent },
-    {  path: 'detalhes/:id', component: SerieDetailComponent }
+    {  path: 'detalhes/:id', component: SerieDetailComponent}
+
+    
 ];
 
 @NgModule({

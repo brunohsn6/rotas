@@ -12,13 +12,17 @@ import { AccountGuard } from './guards/account.guard';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { LoginComponent } from './login/login.component';
+import { DataEditComponent } from './edit/data-edit/data-edit.component';
+import { SerieService } from './serie/serie.service';
+import { MovieService } from './movie/movie.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DataEditComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +32,13 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
+    
   ],
   providers: [
     AccountService,
     AccountGuard,
+    SerieService,
+    MovieService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
 
